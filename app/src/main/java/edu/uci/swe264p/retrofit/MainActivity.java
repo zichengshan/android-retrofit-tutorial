@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create()) // return json object and parse it
                     .build();
         }
         MovieApiService movieApiService = retrofit.create(MovieApiService.class);
