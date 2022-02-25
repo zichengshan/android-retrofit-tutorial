@@ -56,7 +56,7 @@ public class MovieListActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Movie> call, Throwable throwable) {
+            public void onFailure(Call<TopRatedResponse> call, Throwable throwable) {
                 Log.e(TAG, throwable.toString());
             }
         });
