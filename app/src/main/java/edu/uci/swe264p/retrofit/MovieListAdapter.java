@@ -1,17 +1,13 @@
 package edu.uci.swe264p.retrofit;
 
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.ViewHolder> {
@@ -26,6 +22,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
         TextView tvReleaseDate;
         TextView tvVote;
         TextView tvOverview;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivMovie = itemView.findViewById(R.id.ivMovie);
@@ -46,6 +43,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
     @Override
     public void onBindViewHolder(@NonNull MovieListAdapter.ViewHolder holder, int position) {
         Movie movie = movies.get(position);
+        // Reference: https://square.github.io/picasso/
         Picasso.get().load("https://image.tmdb.org/t/p/w500/"+movie.getPosterPath()).into(holder.ivMovie);
         holder.tvTitle.setText(movie.getTitle());
         holder.tvReleaseDate.setText(movie.getReleaseDate());
@@ -55,6 +53,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
 
     @Override
     public int getItemCount() {
-        return movies.size();
+        // we only get top 20 movies, so the item count is 20
+        return 20;
     }
 }

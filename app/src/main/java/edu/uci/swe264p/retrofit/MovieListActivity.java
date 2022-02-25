@@ -38,6 +38,12 @@ public class MovieListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //        recyclerView.setAdapter(new ProgramListAdapter(movies));
 
+        connect();
+
+    }
+
+    private void connect(){
+        // generate retrofit object
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
@@ -46,12 +52,13 @@ public class MovieListActivity extends AppCompatActivity {
         }
 
         MovieApiService movieApiService = retrofit.create(MovieApiService.class);
-        Call<TopRatedResponse> call = movieApiService.getTopRatedMovies(API_KEY);
+        Call<TopRatedResponse> call = movieApiService.getTopMovies(API_KEY);
 
+        // Initiate a request on a background thread and get a result object from the response.body() method of the response.
         call.enqueue(new Callback<TopRatedResponse>() {
             @Override
             public void onResponse(Call<TopRatedResponse> call, Response<TopRatedResponse> response) {
-                movies = response.body().getTopMovies();
+                movies = response.body().getTop20Movies();
                 recyclerView.setAdapter(new MovieListAdapter(movies));
             }
 
