@@ -10,6 +10,7 @@ public interface MovieApiService {
     Call<Movie> getMovie(@Path("id") int id, @Query("api_key") String apiKey);
 
     // Create an interface for network requests
+    // https://api.themoviedb.org/3/movie/top_rated?api_key=YOUR_API_KEY
     @GET("movie/top_rated")
     Call<TopRatedResponse> getTopMovies(@Query("api_key") String apiKey);
 }

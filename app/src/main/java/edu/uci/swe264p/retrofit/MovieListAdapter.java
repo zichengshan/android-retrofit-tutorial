@@ -16,6 +16,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
         this.movies = movies;
     }
 
+    // responsible for displaying single item with a view.
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView ivMovie;
         TextView tvTitle;
@@ -35,12 +36,14 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
 
     @NonNull
     @Override
+    // for creating a new ViewHolder with its corresponding layout
     public MovieListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_row, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
+    // for binding the data of single item to a view
     public void onBindViewHolder(@NonNull MovieListAdapter.ViewHolder holder, int position) {
         Movie movie = movies.get(position);
         // Reference: https://square.github.io/picasso/
@@ -52,6 +55,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
     }
 
     @Override
+    // for reporting the size of your dataset
     public int getItemCount() {
         // we only get top 20 movies, so the item count is 20
         return 20;

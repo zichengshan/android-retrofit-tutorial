@@ -16,6 +16,7 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
         this.mData = data;
     }
 
+    //responsible for displaying single item with a view.
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tv;
 
