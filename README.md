@@ -1,3 +1,29 @@
+## Lab: Complete the Provided Classes to Display Top-rated Movies
+
+This lab asks you to display top-rated movies in `MovieListActivity`. The data can be retrieved from here:
+
+https://api.themoviedb.org/3/movie/top_rated?api_key=YOUR_API_KEY
+
+You have to display the 20 movies in the results returned by the above REST API.
+
+All required class and layout files are provided in the project. Specifically, you have to modify the following four files:
+
+* `MovieApiService.java`: add one more method for the above API
+* `TopRatedResponse.java`: implement it as the `Movie` class
+* `MovieListAdapter.java`: implement it as the `ProgramListAdadpter` class
+* `MovieListActivity.java`: implement it as the `ProgramListActivity` class
+
+Besides, you need to check `movie_row.xml` to know where to place the data when you modify `MovieListAdapter`. Note that, `movie_row.xml` contains a `ImageView` field for displaying the poster of a movie. The poster image can be retrieved with the following URL (refer to [here](https://developers.themoviedb.org/3/getting-started/images)):
+
+https://image.tmdb.org/t/p/w500/POSTER_PATH
+
+You also need to use [Picasso](https://square.github.io/picasso/) to download the poster image from the above URL and put it into the `ImageView` in your `MovieListAdapter`. 
+
+## Demo
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/61951792/158520532-bfc12529-8b8e-49b2-a3df-c93b881320d9.gif)
+
+------
+
 # android-retrofit-tutorial
 
 This tutorial/lab aims to provide hands-on experience of building an Android app that retrieves and displays data with REST API. We will first introduce how to:
@@ -224,26 +250,3 @@ public class ProgramListActivity extends AppCompatActivity {
 ```
 
 You have learned how to use Retrofit and RecyclerView. Now it is your turn to finish the following lab. 
-
-
-
-## Lab: Complete the Provided Classes to Display Top-rated Movies
-
-This lab asks you to display top-rated movies in `MovieListActivity`. The data can be retrieved from here:
-
-https://api.themoviedb.org/3/movie/top_rated?api_key=YOUR_API_KEY
-
-You have to display the 20 movies in the results returned by the above REST API.
-
-All required class and layout files are provided in the project. Specifically, you have to modify the following four files:
-
-* `MovieApiService.java`: add one more method for the above API
-* `TopRatedResponse.java`: implement it as the `Movie` class
-* `MovieListAdapter.java`: implement it as the `ProgramListAdadpter` class
-* `MovieListActivity.java`: implement it as the `ProgramListActivity` class
-
-Besides, you need to check `movie_row.xml` to know where to place the data when you modify `MovieListAdapter`. Note that, `movie_row.xml` contains a `ImageView` field for displaying the poster of a movie. The poster image can be retrieved with the following URL (refer to [here](https://developers.themoviedb.org/3/getting-started/images)):
-
-https://image.tmdb.org/t/p/w500/POSTER_PATH
-
-You also need to use [Picasso](https://square.github.io/picasso/) to download the poster image from the above URL and put it into the `ImageView` in your `MovieListAdapter`. 
